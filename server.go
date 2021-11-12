@@ -27,6 +27,7 @@ type Group struct {
 
 func getUser(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
+	log.Output(1, "Request Sent")
 	json.NewEncoder(w).Encode(users)
 }
 
