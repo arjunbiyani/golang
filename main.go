@@ -1,19 +1,13 @@
 package main
 
-import (
-	"fmt"
-	"log"
-	"net/http"
-)
-
-// GET all Users
-
-func getUser(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-	log.Output(1, "Request Sent")
-}
+import "github.com/gofiber/fiber/v2"
 
 func main() {
-	fmt.Println("Hi From Main ")
+	app := fiber.New()
 
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString("Hello, World 👋!")
+	})
+
+	app.Listen(":3000")
 }
